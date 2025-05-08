@@ -1288,7 +1288,7 @@ fn central_header_to_zip_file_inner<R: Read>(
     } = block;
 
     let encrypted = flags & 1 == 1;
-    let is_utf8 = flags & (1 << 11) != 0;
+    let is_utf8 = true; // flags & (1 << 11) != 0;
     let using_data_descriptor = flags & (1 << 3) != 0;
 
     let file_name_raw = read_variable_length_byte_field(reader, file_name_length as usize)?;
